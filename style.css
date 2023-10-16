@@ -6,6 +6,13 @@
 body{
     background-color: #FFFAEB;
 }
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 23px;
+    font-style: oblique;
+}
 .newbtn{
     display: flex;
     justify-content: center;
@@ -71,19 +78,65 @@ body{
     border-radius: 7px;
 }
 .display-card-design{
-    border: 2px solid #FF8400;
-    height: 17vh;
+    width: 100%;
     margin: 3px;
     padding: 20px;
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 30px 20px;
 }
 .book-card{
-    border: 1px solid #CF4307;
-    width: 7%;
-    height: 13vh;
+    border: 3px solid #EEEB0A;
+    border-left: 7px solid #130e01;
+    border-radius: 7px 13px 13px 7px;
+    width: 14%;
+    height: 25vh;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #CF4307;
+    color: #EDEBFA;
+}
+
+.remove-button, .toggle-read-btn{
+    margin-top: 7px;
+    background-color: #FBB99D;
+    height: 1.6rem;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid #EDBAE6;
+}
+
+.card-header{
+    text-align: center;
+    padding-top: 7px;
+}
+.card-body{
+    text-align: center;
+}
+
+
+
+
+
+
+@media screen  and (max-width: 767px) {
+    .detail-form-active{
+        width: 80%;
+        margin: auto;
+    }
+    .detail-form .values{
+        width: 20rem;
+    }
+    .display-card-design{
+        flex-direction: column;
+    }
+    .book-card{
+        width: 50%;
+        height: 35vh;
+        margin: auto;
+    } 
 }

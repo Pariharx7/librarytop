@@ -10,6 +10,15 @@ function Books(title, author, numOfPages, read) {
     this.read = read;
 }
 
+Books.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
 function addBookToLibrary() {
     const bookAuthor = document.querySelector('#author-field').value;
     const bookTitle = document.querySelector('#title-field').value;
@@ -30,16 +39,23 @@ function render(){
         bookElm.setAttribute("class","book-card");
         bookElm.innerHTML =`
         <div class="card-header">
-            <h3 class="title">${book.title}</h3>
+            <h2 class="title">${book.title}</h2>
             <h5 class="author">${book.author}</h5>
         </div>
         <div class="card-body">
-            <p>${book.numOfPages}</p>
+            <p>${book.numOfPages} pages</p>
             <p class="read-status">${book.read ? "Read" : "Not Read Yet"}</p>
+            <button class="toggle-read-btn" onclick="toggleRead(${i})">Update Status</button>
+            <button class="remove-button" onclick="removeBook(${i})">Remove</button>
         </div>
         `;
         cardsection.appendChild(bookElm);
     }
+}
+
+function removeBook(index){
+    myLibrary.splice(index, 1);
+    render();
 }
 
 const submitBtn = document.querySelector('.submit-book');
